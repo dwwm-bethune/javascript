@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Form sign-up</title>
+
+    <style>
+        div {
+            padding: 1rem;
+        }
+
+        div label, div span {
+            display: inline-block;
+            width: 150px;
+        }
+
+        div span {
+            text-align: center;
+        }
+
+        input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="get" name="form">
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" onkeyup="verifEmail(this)">
+        </div>
+
+        <div>
+            <label for="pwd">Password :</label>
+            <input type="password" name="pwd" id="pwd" onkeyup="verifPassword(this)">
+        </div>
+
+        <div>
+            <label for="captcha">Are you a robot ?</label>
+            <span id="captcha_calcul"></span>
+            <input type="text" name="captcha" id="captcha" onkeyup="verifCaptcha(this)">
+        </div>
+
+        <div>
+            <button type="submit" id="btn_submit" disabled>Confirmer</button>
+        </div>
+        
+    </form>
+    
+    <script>
+        let isEmailOk = false, isPasswordOk = false, isCaptchaOk = false;
+        let result = 0;
+        let btn = document.getElementById("btn_submit");
+        let cap = document.getElementById("captcha_calcul");
+
+        function verifEmail(tag) {
+            let pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
+            let regex = new RegExp(pattern);
+            
+            if (tag.value.match(regex)) {
+                tag.style.border = "3px solid green";
+                isEmailOk = true;
+            } else {
+                tag.style.border = "3px solid red";
+                isEmailOk = false;
+            }
+
+            submitForm();
+        }
+        
+        function verifPassword(tag) {
+            let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i;
+            let regex = new RegExp(pattern);
+            
+            if (tag.value.match(regex)) {
+                tag.style.border = "3px solid green";
+                isPasswordOk = true;
+            } else {
+                tag.style.border = "3px solid red";
+                isPasswordOk = false;
+            }
+
+            submitForm();
+        }
+
+        function verifCaptcha(tag) {
+            if (tag.value == result) {
+                tag.style.border = "3px solid green";
+                isCaptchaOk = true;
+            } else {
+                tag.style.border = "3px solid red";
+                isCaptchaOk = false;
+            }
+
+            submitForm();
+        }
+
+        function loadCaptcha() {
+            let nb1 = getRandomArbitrary(0, 101);
+            let nb2 = getRandomArbitrary(0, 101);
+            let str = `${nb1} + ${nb2}`;
+            result = eval(str);
+
+            cap.innerHTML = str;
+        }
+
+        function getRandomArbitrary(max, min) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        function submitForm() {
+            if (isEmailOk && isPasswordOk && isCaptchaOk) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        loadCaptcha();
+        
+    </script>
+
+</body>
+
+</html>

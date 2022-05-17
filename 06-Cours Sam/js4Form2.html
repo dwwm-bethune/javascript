@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS/4/Form2</title>
+</head>
+<body>
+    
+    <!-- <form action="" name="f">
+
+        <input type="text" name="" id="" placeholder="Nom et Prénom" minlength="2" maxlength="10" title="EX : Dupond Jean / Toto tata" required> 
+
+        <input type="number" name="" id="">
+
+        <input type="password" name="" id="">
+
+        <input type="email" name="" id="">
+
+        <input type="checkbox" name="" id="">
+
+        <input type="range" name="" id="">
+
+        <input type="radio" name="" id="">
+
+        <input type="date" name="" id="">
+
+        <input type="time" name="" id="">
+
+        <input type="datetime-local" name="" id="">
+
+        <input type="tel" name="" id="">
+
+        <input type="image" name="" id="">
+
+        <input type="color" name="" id="">
+
+        <input type="hidden" name="" id="">
+
+        <input type="url" name="" id="">
+
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" name="" id="">
+
+        <input type="reset" name="" id="">
+
+        <input type="button" name="" id="">
+
+        <div>
+            <select name="list" id="" multiple size="2">
+                <option value="fr"> France</option>
+                <option value="be">Belgique</option>
+                <option value="ch">Suisse</option>
+                <option value="qu">Quebec</option>
+                <option value="qu">&#8596;</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="search" name="" list="fruits">
+            <datalist id="fruits">
+                <option value="">Pomme</option>
+                <option value="">Banane</option>
+                <option value="">Poire</option>
+                <option value="">Fraise</option>
+                <option value="">Framboise</option>
+            </datalist>
+        </div>
+    </form> -->
+
+    <form action="#" name="f" method="get">
+        <div>
+            <label for="color">Passer en dark</label>
+            <input type="checkbox" name="dark" id="color" onclick="check();">
+        </div>
+        <div>
+            <label for="colortxt">Changer la couleur de la font</label>
+            <input type="checkbox" name="color1" id="colortxt" onclick="check1();">
+        </div>
+    </form>
+
+    <script>
+        let form = document.f;
+
+        function check() {
+            if (form.dark.checked){
+                document.body.style.backgroundColor = "#3c3c3c";
+            } else {
+                document.body.style.backgroundColor = "#fff";
+            }
+        }
+
+        function check1() {
+            if (form.color1.checked){
+                document.body.style.color = "pink";
+            } else {
+                document.body.style.color = "black";
+            }
+        }
+
+    </script>
+
+</body>
+</html>
