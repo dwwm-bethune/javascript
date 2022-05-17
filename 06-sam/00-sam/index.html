@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forms</title>
+</head>
+
+<body>
+
+    <form action="" method="get" name="formulaire"> <!-- method http : get -->
+        <div>
+            <label for="nom_id">Entrez votre nom : </label>
+            <input type="text" name="nom" id="nom_id"> <!-- input text -->
+        </div>
+
+        <div>
+            <label for="email_id">Entrez votre adresse email : </label>
+            <input type="email" name="email" id="email_id">
+        </div>
+
+        <div>
+            <label for="question_yes">Connaissez-vous mediaforma ? OUI</label>
+            <input type="radio" name="question" value="oui" id="question_yes"> <!-- input radio -->
+            <label for="question_no">NON</label>
+            <input type="radio" name="question" value="non" id="question_no">
+        </div>
+
+        <div>
+
+            <!-- button type submit by default -->
+            <button type="submit">Envoyer</button>
+            <button type="reset">Annuler</button>
+            <button type="button" onclick="upper();">Majuscules</button>
+        </div>
+
+    </form>
+
+    <script>
+        function upper(chaine) {
+            document.formulaire.email.value = document.formulaire.email.value.toUpperCase();
+        }
+        "\r\n" // retour à la ligne Windows
+    </script>
+
+</body>
+
+</html>

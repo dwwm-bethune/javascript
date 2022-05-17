@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+        form div {
+            padding: 1rem;
+        }
+
+        form div label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        form div input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="get">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" onkeyup="verifEmail(this)">
+        </div>
+
+        <div>
+            <label for="pwd">Mot de passe</label>
+            <input type="password" name="pwd" id="pwd" onkeyup="verifMDP(this)"/>
+        </div>
+
+        <div>
+            <label for="register">Enregistrer le mot de passe</label>
+            <input type="checkbox" value="register" name="register" id="register">
+        </div>
+
+        <div>
+            <label for="captcha">Vérification</label>
+            <span id="captcha_calcul"></span>
+            <input type="text" name="captcha" id="captcha" onkeyup="verifCalcul(this)">
+        </div>
+
+        <div>
+            <button type="submit" id="butn_submit" disabled>Se connecter</button>
+        </div>
+    </form>
+
+
+    <!-- JS -->
+    <script>
+        let isEmailOk = false;
+        let isPwdOk = false;
+        let resultat;
+
+        function verifEmail(tag) {
+            let pattern = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/i;
+            let regex = new RegExp(pattern);
+
+            if (tag.value.match(regex)) {
+                tag.style.border = "2px solid green";
+                isEmailOk = true;
+            } else {
+                tag.style.border = "2px solid red";
+                isEmailOk = false;
+            }
+        }
+
+        function verifMDP(tag) {
+            let pattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/;
+            let regex = new RegExp(pattern);
+
+            if (tag.value.match(regex)) {
+                tag.style.border = "3px solid blue";
+                isPwdOk = true;
+            } else {
+                tag.style.border = "3px solid red";
+                isPwdOk = false;
+            } 
+        }
+
+        function verifCalcul(tag) {
+            let btn = document.getElementById('butn_submit');
+
+            if (resultat == parseInt(tag.value)) {
+                tag.style.border = "3px solid blue";
+                btn.disabled = false;
+            } else {
+                tag.style.border = "3px solid red";
+                btn.disabled = true;
+                // btn.setAttribute('disabled', 'true');
+            }
+        }
+
+        function calcul() {
+            let cap = document.getElementById("captcha_calcul");
+            let a = getRandomArbitrary(-100, 101);
+            let b = getRandomArbitrary(-100, 101);
+            let str = `${a} + ${b}`;
+            cap.innerHTML = str;
+            resultat = eval(str);
+        }
+
+        function getRandomArbitrary(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        calcul();
+
+    </script>
+</body>
+
+</html>

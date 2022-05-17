@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+        <div>
+            <label for="bg_col">Background color</label>
+            <input type="color" name="bg_col" id="bg_col_id" onchange="change_bg_col(this.form);">
+            <input type="text" name="affichage_bg">
+        </div>
+        
+        <div>
+            <label for="f_col">Font color</label>
+            <input type="color" name="f_col" id="f_col_id" onchange="change_f_col(this.form);">
+            <input type="text" name="affichage_fc">
+
+        </div>
+    </form>
+
+    <script>
+
+        function change_bg_col(formulaire) {
+            document.body.style.backgroundColor = formulaire.bg_col.value;
+            formulaire.affichage_bg.value = formulaire.bg_col.value;
+        }
+
+        function change_f_col(formulaire) {
+            document.body.style.color = formulaire.f_col.value;
+            formulaire.affichage_fc.value = formulaire.f_col.value;
+        }
+
+    </script>
+</body>
+
+</html>

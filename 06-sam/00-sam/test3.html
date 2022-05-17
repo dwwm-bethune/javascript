@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="movie"></div>
+
+    <script>
+        let inception = {
+            date: "21/07/2010",
+            img: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.amazon.fr%2FInception-Edizione-Regno-Unito-anglais%2Fdp%2FB00503EHGK&psig=AOvVaw28Wrv_5nHXs7cQvYRYFKcs&ust=1652530134524000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCODY7s-43PcCFQAAAAAdAAAAABAD"),
+            name: "Inception",
+            synopsis: "Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses talents dans l’univers trouble de l’espionnage industriel, Cobb est aussi devenu un fugitif traqué dans le monde entier qui a perdu tout ce qui lui est cher. Mais une ultime mission pourrait lui permettre de retrouver sa vie d’avant – à condition qu’il puisse accomplir l’impossible : l’inception. Au lieu de subtiliser un rêve, Cobb et son équipe doivent faire l’inverse : implanter une idée dans l’esprit d’un individu. S’ils y parviennent, il pourrait s’agir du crime parfait. Et pourtant, aussi méthodiques et doués soient-ils, rien n’aurait pu préparer Cobb et ses partenaires à un ennemi redoutable qui semble avoir systématiquement un coup d’avance sur eux. Un ennemi dont seul Cobb aurait pu soupçonner l’existence."
+        };
+
+        let movie = document.querySelector("main div#movie");
+
+        movie.innerHTML = /*html*/ `
+            <h3>${inception.name}</h3>
+            <p>${inception.synopsis}</p>
+            <figure>
+                <img src=${inception.img} alt=${inception.name}>
+                <figcaption><date>${inception.date}</date></figcaption>
+            </figure>
+        `;
+    </script>
+</body>
+
+</html>
