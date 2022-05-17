@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            margin: 10px;
+            padding:10px;
+        }
+
+        div label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        div input {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="get">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" onkeyup="verifEmail(this);">
+
+        </div>
+        <div>
+            <label for="pwd">Mot de passe</label>
+            <input type="password" name="pwd" id="pwd" onkeyup="verifpwd(this);">
+        </div>
+        <div>
+            <label for="register">Enregistrer le mot de passe</label>
+            <input type="checkbox" value="register" name="register" id="register">
+            
+        </div>
+        <div>
+            <label for="captcha">Verification :</label>
+            <span id="captcha_calcul"></span>
+            <input type="text" name="captcha" id="captcha" onkeyup="verifCalcul(this)">
+        </div>
+        <div>
+            <button type="submit" id="btn-submit" disabled>Se connecter</button>
+        </div>
+
+    </form>
+</body>
+
+<script src="cour1305.js"></script>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: flex;
+            position: absolute;
+            top: 1350px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            color: white;
+            background: linear-gradient(top left #0000ff, bottom right red);
+        }
+
+        main div {
+            text-align: center;
+            width: 80%;
+            margin-left: auto;
+            margin-right:auto;
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(28,28,167,1) 35%, rgb(162, 0, 255) 100%);
+            box-shadow: 7px 7px 25px rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        main h3 {
+            font-size: 4em;
+        
+
+        }
+
+        main figure {
+            padding: 10px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding:0px;
+        }
+
+        main img {
+            width: 92%;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <button onclick="console.log('coucou');">
+        faire coucou en console
+    </button>
+
+    
+    <form action="" method="get" name="formulaire">
+        <div>
+            <label for="nom_id">Entrez votre nom :</label>
+            <input type="text" name="nom " id="nom_id"></div>
+        <div>
+            <label for="nom_mail">Entrer votre adresse mail</label>
+            <input type="email" name="email" id="nom_mail"></div>
+        <div>
+            <label for="question_yes">Connaissez vous mediaforma ? OUI </label>
+            <input type="radio" name="question" value="oui" id="question_yes">
+            <label for="question_no">NON</label>
+            <input type="radio" name="question" value="non" id="question_no">
+        </div>
+        <div>
+            <button type="submit">Valider</button>
+            <button type="reset">Effacer</button>
+            <button type="button" onclick="formupper();">Majuscule</button>
+        <div>
+
+    </form>
+
+
+    <form action="" name="exo1">
+        <div>
+            <label for="calc"></label>
+            <input type="text" name="calcul" id="calc">
+        
+            <button type="button" onclick="calculer();">Calculer</button>
+        
+            <label for="result"></label>
+            <input type="text" name="resultat" id="result">
+        </div>
+    
+    </form>
+
+    <a href="#" name="salu">salut</a>
+
+    <br>
+    <hr>
+    <br>
+
+    <form action="" name="f">
+        <div>
+            <input 
+            type="text" 
+            name=""
+            placeholder="Nom et Prénom"
+            pattern="^[a-zA-Z-\uc00C0-\u017F]{2,30}\s[a-zA-Z-\uc00C0-\u017F]{2,30}$"
+            title="Ex : Dupont Jean / Toto tate"
+            required
+        >
+
+        <input type="number" 
+            name=""
+            min="-5"
+            max="10"
+            placeholder="Un nombre aléatoire"
+            required
+
+        
+        >
+        <input type="password" name="">
+        <input type="email" name="">
+        <input type="checkbox" name="" checked>
+        <input type="range" name="">
+        <input type="radio" name="" checked>
+        <input type="date" name="">
+        <input type="time" name="">
+        <input type="datetime-local" name="">
+        <input type="tel" name="">
+        <input type="image" name="">
+        <input type="color" name="">
+        <input type="hidden" name="">
+        <input type="url" name="">
+        </div>
+
+        <div>
+            <textarea name="" cols="30" rows="10"></textarea>
+        </div>
+
+        <div>
+            <select name="list" id="" multiple size="2"> <!--multiple change la forme du formulaire, et size limite le nombre de selection affiché-->
+                <option value="fr">France</option>
+                <option value="be" >Belgique</option>
+                <option value="ch">Suisse</option>
+                <option value="qb">Quebec</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="search" name="" list="fruits">
+            <datalist id="fruits">
+                <option>Pomme</option>
+                <option>Banane</option>
+                <option>Poire</option>
+                <option>Fraise</option>
+            </datalist>
+        </div>
+
+        <div>
+            <input type="submit" name="">
+            <input type="reset" name="">
+        </div>
+
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <form action="#" name="sombre">
+        <div>
+            <label for="color">Passer en Dark</label>
+            <input type="checkbox" name="dark" id="color" onclick="check();">
+        </div>
+    </form>
+
+
+    <br>
+    <hr>
+    <br>
+
+
+    <!--Exo faire une page ou l'on peut choisir la couler de fond et texte-->
+
+
+    <form action="#" name = "colexo">
+        <div>
+            <label for="textexo">Choissie la couleur du texte</label>
+            <input type="color" name="textexo" id="textexo">
+
+            <label for="fondexo">choisissez la couleur de fond</label>
+            <input type="color" name="fondexo" id="fondexo">
+
+            <label for="exocheck">Changer couleur</label>
+            <input type="checkbox" name="exocheck" id="exocheck" onclick="check2();">
+            <!--Plutot que rajouter une checkbox avec un onclick,
+            on aurai pu mettre des "onchange" sur les input type color-->
+            <br>
+
+            <label for="">couleur fond</label>
+            <input type="text" name="afffond">
+
+            <label for="">couleur text</label>
+            <input type="text" name="afftext">
+
+        </div>
+    </form>
+
+    <br>
+    <br>
+
+    <!--Plutot que de toujours mettre un nom dands la balise form
+    On peut enlever le name et mettre a la place
+    this.form dans les () de la fonction
+    ex: onclick="check2(this.form)
+    -->
+
+    <form action="#" >
+        <div>
+            <label for="textexo1">Choissie la couleur du texte</label>
+            <input type="color" name="textexo1" id="textexo1">
+
+            <label for="fondexo1">choisissez la couleur de fond</label>
+            <input type="color" name="fondexo1" id="fondexo1">
+
+            <label for="exocheck1">Changer couleur</label>
+            <input type="checkbox" name="exocheck1" id="exocheck1" onclick="check3(this.form);">
+            <!--Plutot que rajouter une checkbox avec un onclick,
+            on aurai pu mettre des "onchange" sur les input type color-->
+            <br>
+
+            <label for="">couleur fond</label>
+            <input type="text" name="afffond1">
+
+            <label for="">couleur text</label>
+            <input type="text" name="afftext1">
+
+        </div>
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <main>
+        <div id="movie"></div>
+    </main>
+
+    <div>Un peu de texte pour remplir</div>
+
+
+
+
+    <br>
+    <hr>
+    <br>
+    <script src="index.js"></script>
+</body>
+
+
+</html>
