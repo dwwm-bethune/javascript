@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" name="form" method="get">
+        <div>
+            <label for="bgc">Background color</label>
+            <input type="color" name="bgc" id="bgc" onchange="changeBgc(this.form);">
+            <input type="text" name="affichage_bgc">
+        </div>
+        <div>
+            <label for="font">Font color</label>
+            <input type="color" name="font" id="font" onchange="changeFontColor(this.form)">
+            <input type="text" name="affichage_font">
+        </div>
+    </form>
+</body>
+</html>
+
+<script>
+
+    function changeBgc(formulaire){
+        document.body.style.backgroundColor = formulaire.bgc.value;
+        formulaire.affichage_bgc.value = formulaire.bgc.value
+    }
+
+    function changeFontColor(formulaire){
+        document.body.style.color = document.form.font.value;
+        formulaire.affichage_font.value = formulaire.font.value
+    }
+</script>
