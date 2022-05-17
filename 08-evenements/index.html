@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evenements</title>
+</head>
+<body>
+    <h1 id="title" onclick="display()">Mon titre</h1>
+    <p onclick="display('toto')">Clic</p>
+
+    <input type="text" onkeyup="hit(event, this)" id="name">
+    <input type="text" onkeyup="hit(event, this)" id="firstname">
+
+    <button id="myButton">Go</button>
+
+    <script>
+        // On peut ranger du code dans une fonction qui sera appelé plus tard
+        // La fonction peut avoir des arguments
+        function display(name = 'les gens') {
+            alert('Salut ' + name);
+        }
+
+        // On veut récupèrer la valeur saisie dans le input
+        function hit(event, element) {
+            console.log(event);
+            var name = document.getElementById('name');
+            console.log(name.value);
+            console.log(element.value); // element vaut this qui vaut soit l'input #name ou l'input #firstname
+
+            // On peut vérifier quelles touches ont été appuyées
+            if (event.key == 'f') {
+                document.body.style.backgroundColor = 'blue';
+            }
+        } // FIN DE LA FONCTION
+
+        // Syntaxe plus propre pour écouter les
+        // événements en JS
+        // click == clic gauche, dblclick = double clic, contextmenu = clic droit
+        document.getElementById('myButton').addEventListener('click', function (event) {
+            console.log('Clic sur le bouton');
+            console.log(this); // this représente le bouton #myButton
+            console.log(event); // event représente le click
+        });
+    </script>
+</body>
+</html>

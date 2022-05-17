@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice CSS</title>
+</head>
+<body>
+    <p>Lorem</p>
+    <p>Lorem</p>
+    <p>Lorem</p>
+
+    <script>
+        document.body.style.backgroundColor = '#d5b9b9';
+
+        var paragraphs = document.getElementsByTagName('p');
+
+        for (p of paragraphs) { // on parcourt chaque p (3 fois)
+            p.style.fontSize = '21px';
+        }
+
+        // paragraphs[0].style.fontSize = '21px';
+        // paragraphs[1].style.fontSize = '21px';
+        // paragraphs[2].style.fontSize = '21px';
+
+        var link = document.createElement('a');
+        link.href = 'https://developer.mozilla.org/';
+        link.textContent = 'Cliquer ici';
+        link.target = '_blank';
+
+        document.body.appendChild(link); // Ajouter le lien dans le DOM
+
+        link.style.color = '#fff';
+        link.style.textDecoration = 'none';
+
+        // @todo random color
+    </script>
+</body>
+</html>
