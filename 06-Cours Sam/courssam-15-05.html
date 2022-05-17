@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours Sam Jeudi 12/5</title>
+</head>
+<body>
+
+    <!-- <button onclick="console.log('coucou');">
+        Faire coucou en console
+    </button> -->
+
+
+    <!-- Création du formulaire  -->
+
+    <form action="" method="get" name="formulaire"> <!--balise form qui a pour name formulaire-->
+        <div>
+            <label for="nom_id">Entrez votre nom</label>
+            <input type="text" name="nom" id="nom_id">
+        </div>
+        <div>
+            <label for="email_id">Entrez votre adresse email</label> <!-- vers le label qui a un input --> <!-- La value de email est ce que l'utilisateur va entrez dans la zone de texte -->
+            <input type="email" name="email" id="email_id"> <!-- cette input a pour name email -->
+        </div>
+        <div>
+            <label for="">Conaissez vous media format ? </label>
+            <label for="oui_id">OUI</label>
+            <input type="radio" name="question" id="oui_id" value="oui">
+            <label for="non_id">NON</label>
+            <input type="radio" name="question" id="non_id" value="non">
+        </div>
+        <div>
+            <button type="submit">Envoyer</button>
+            <button type="reset">Annuler</button>
+            <button type="button" onclick="upper();">Majuscule</button>
+        </div>
+    </form>
+            <!-- mailto:truant.web.dev@gmail.com -->
+
+    <script>
+
+        // Création de la fonction pour mettre le mail en majuscule 
+        
+        function upper() {
+            document.formulaire.email.value = document.formulaire.email.value.toUpperCase(); 
+            // document(page html) -> balise form qui a pour name formulaire -> vers label email qui a un input qui a pour nom email -> vers la value du input name email 
+        }
+
+
+
+
+
+        
+
+            let notes = [12, 10.25, 8.75 , 6, 13.5, 18];
+            let tab = [];
+            tab[0] = "sam";
+            tab[1] = "mich";
+            tab.push("Sabrina");
+
+
+            let somme = 0;
+            let countSup10 = 0;
+            for(let i = 0; i < notes.length; i++) {
+                if (notes[i] > 10) {
+                    countSup10++;
+                    
+                }
+                console.log(notes[i])
+            }
+
+            console.log(somme / notes.length);
+
+
+            <form action="#" name="dark" method="get">
+                <div>
+                    <label for="color">Passer en dark</label>
+
+                
+            </form>
+               
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

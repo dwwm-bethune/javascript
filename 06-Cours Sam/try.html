@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test input</title>
+
+    <style>
+
+        body {
+            background-color: #D1A399;
+            margin: 0;
+
+        }
+
+        div {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        div label {
+            display: inline-block;
+            width: 200px;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <form action="" method="GET">
+        <div>
+            <label for="user-name">User Name</label>
+            <input type="text" name="user-name" id="user-name" onkeyup="VerifUserName(this)">
+        </div>
+        <div>
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" id="email" onkeyup="verifEmail(this)">
+        </div>
+        <div>
+            <label for="passsword">PassWord</label>
+            <input type="password" name="password" id="password" onkeyup="verifMdp(this)">
+        </div>
+        <div>
+            <label for="captcha">Vérification</label>
+            <span></span>
+            <input type="text" name="captcha" id="captcha" onkeyup="verifCaptcha(this)">
+        </div>
+        <div>
+            <button type="submit">Log In</button>
+        </div>
+
+
+        
+    </form>
+
+
+
+
+
+
+    <script>
+
+        let isUserOk = false;
+        let isEmailOk = false;
+        let isMdpOk = false;
+
+        function verifUserName(tag) {
+            let pattern = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/i;
+            let regex = new RegExp (pattern);
+            if (tag.value.match(regex)) {
+                tag.style.order = "3px solid blue";
+                console.log("ça matche");
+                isUserOk = true;
+            } else {
+                console.log("ça ne matche pas");
+                tag.style.border = "3px solid red";
+                isUserOk = false;
+            }
+        }
+
+        function verifEmail(tag) {
+            let pattern = /^((?!\.)[\w\-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/i;
+            let regex = new RegExp(pattern);
+            if (tag.value.match(regex)) {
+                tag.style.border = "3px solid blue";
+                console.log("ça matche");
+                isEmailOk = true;
+            } else {
+                console.log("ça ne matche pas");
+                tag.style.border = "3px solid red";
+                isEmailOk = false;
+            }
+        }
+
+        function verifMdp(tag) {
+            let pattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/;
+            let regex = new RegExp(pattern);
+            if (tag.value.match(regex)) {
+                tag.style.border = "3px solid blue";
+                console.log("ça matche");
+                isMdpOk = true;
+            } else {
+                console.log("ça ne matche pas");
+                tag.style.border = "3px solid red";
+                isMdpOk = false;
+            }
+        }
+
+        function verifCaptcha(tag) {
+            let cap = document.getElementById("captcha_calcul");
+            let a = getRandomArbitrary(-100, 101);
+            let b = getRandomArbitrary(-100, 101);
+            let str = `${a} + ${b}` ;
+            resultat = eval(str);
+        }
+
+        function getRandomArbitrary(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+
+        verifCaptcha();
+
+
+
+    </script>
+    
+</body>
+</html>
