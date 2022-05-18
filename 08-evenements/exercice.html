@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Evénements</title>
+</head>
+<body>
+    <img id="image" src="img/cat.png" alt="Chat">
+
+    <h1 id="title">Changer la couleur</h1>
+
+    <button id="changeBody">Changer le body</button>
+
+    <form action="">
+        <input type="text">
+        <button id="send">Envoyer</button>
+    </form>
+
+    <h1 id="content"></h1>
+    <input type="text" id="message">
+    <button id="add">Envoyer</button>
+
+    <br><br><br><br><br><br>
+
+    <script>
+        // 1. Image
+        var image = document.getElementById('image');
+        image.addEventListener('mouseenter', function () {
+            // this est image
+            this.src = 'img/lion.png';
+        });
+
+        image.addEventListener('mouseleave', function () {
+            // this est image
+            this.src = 'img/cat.png';
+        });
+
+        // 2. Titre en couleur
+        var h1 = document.getElementById('title');
+        h1.addEventListener('click', function () {
+            this.style.color = 'lightblue';
+        });
+
+        // 3. Changer la couleur de fond
+        var changeBody = document.getElementById('changeBody');
+        changeBody.addEventListener('click', function () {
+            if (document.body.style.backgroundColor != '') {
+                document.body.style.backgroundColor = '';
+            } else {
+                document.body.style.backgroundColor = 'lightgrey';
+            }
+        });
+
+        // 4. Formulaire
+        var send = document.getElementById('send');
+        send.addEventListener('click', function (event) {
+            event.preventDefault(); // Annule le comportement par défaut (ici l'envoi du formulaire)
+
+            // previousElementSibling récupère le grand frère du bouton (input)
+            var input = send.previousElementSibling;
+            alert(input.value);
+        });
+
+        var add = document.getElementById('add'); // button
+        var message = document.getElementById('message'); // input
+
+        add.addEventListener('click', function () {
+            document.getElementById('content').textContent = message.value;
+        });
+
+        // Input est un keydown / keyup plus précis (copier / coller souris)
+        message.addEventListener('input', function () {
+            document.getElementById('content').textContent = message.value;
+        });
+    </script>
+</body>
+</html>
