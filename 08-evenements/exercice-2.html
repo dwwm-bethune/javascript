@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice souris</title>
+    <style>
+        #circle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body style="height: 5000px">
+    <div id="circle"></div>
+
+    <script>
+        // Evénements souris et fenêtre
+        // Pour suivre sur la souris sur tout le document, on peut utiliser
+        // window ou document ou document.getElementById('circle')
+        var circle = document.getElementById('circle');
+        var canMove = false;
+
+        circle.addEventListener('click', function () {
+            canMove = !canMove;
+        });
+
+        window.addEventListener('mousemove', function (event) {
+            // pageX = horizontal, pageY = vertical
+            console.log(event.pageX, event.pageY);
+
+            if (canMove) { // On bouge la div si canMove est true
+                circle.style.top = event.pageY - 50 + 'px';
+                circle.style.left = event.pageX - 50 + 'px';
+            }
+        });
+
+        window.addEventListener('scroll', function (event) {
+            console.log(window.scrollY);
+        });
+    </script>
+</body>
+</html>
