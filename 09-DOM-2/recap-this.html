@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title" onmouseover="test(this)">Clic</h1>
+    <script>
+      /**
+       * this est un mot clé représentant un contexte
+       */
+
+      console.log(this); // this est window
+
+      var title = document.getElementById('title');
+
+      title.addEventListener('click', function () {
+        console.log(this, 'titi'); // this est title car title est l'appellant
+      });
+
+      window.addEventListener('click', function () {
+        console.log(this, 'toto'); // this est window
+      });
+
+      function test(element) {
+        console.log(this); // this est window car pas d'appellant
+        console.log(element);
+      }
+
+      console.log('FIN');
+    </script>
+  </body>
+</html>
