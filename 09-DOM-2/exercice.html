@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM exo</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(180deg, #2f6ed3 5%, #5095e4 20%, #5095e4 60%, #2f6ed3 95%);
+            height: 100vh;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            border: 4px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+            padding: 80px;
+            color: #fff;
+            font-size: 36px;
+            cursor: pointer;
+        }
+
+        .selected {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #000;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+      <div id="card1" class="card">Salut</div>
+      <div id="card2" class="card">Bonjour</div>
+      <div id="card3" class="card">Hello</div>
+    </div>
+
+    <script>
+        var card1 = document.getElementById('card1');
+        var card2 = document.getElementById('card2');
+        var card3 = document.getElementById('card3');
+
+        card1.addEventListener('click', function () {
+            card2.classList.remove('selected');
+            card3.classList.remove('selected');
+            card1.classList.toggle('selected');
+        });
+
+        card2.addEventListener('click', function () {
+            card1.classList.remove('selected');
+            card3.classList.remove('selected');
+            card2.classList.toggle('selected');
+        });
+
+        card3.addEventListener('click', function () {
+            card1.classList.remove('selected');
+            card2.classList.remove('selected');
+            card3.classList.toggle('selected');
+        });
+    </script>
+</body>
+</html>
