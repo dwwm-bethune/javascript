@@ -29,6 +29,12 @@ startButton.addEventListener('click', function () {
             if (milliseconds >= 1000) {
                 milliseconds = 0;
                 seconds++;
+
+                // Masquer les ":" toutes les secondes
+                var dots = document.getElementsByClassName('dot');
+                dots[0].classList.toggle('hidden');
+                dots[1].classList.toggle('hidden');
+                dots[2].classList.toggle('hidden');
             }
 
             if (seconds >= 60) {
