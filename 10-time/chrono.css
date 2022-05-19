@@ -1,0 +1,35 @@
+body {
+    color: #fff;
+    background-color: #000;
+}
+
+.chrono {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.time {
+    font-family: 'clockicons', sans-serif;
+    border: 4px solid #fff;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 48px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.button:hover {
+    background-color: #fff;
+    color: #000;
+}
