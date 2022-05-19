@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+    <h1 id="title">Je ne suis pas encore développeur</h1>
+    <button id="finish-form">Finir formation</button>
+
+    <br><br><br>
+
+    <button id="start">Lancer un décompte</button>
+    <span id="display"></span>
+
+    <script>
+        var title = document.getElementById('title');
+        var finishButton = document.getElementById('finish-form');
+        var startButton = document.getElementById('start');
+        var display = document.getElementById('display');
+
+        // Afficher un message au bout de 2 secondes
+        var onGoing = setTimeout(function () {
+            // alert('Pub');
+
+            title.textContent = 'Je suis en train de devenir développeur';
+        }, 4000);
+
+        finishButton.addEventListener('click', function () {
+            // On peut interrompre un setTimeout
+            clearTimeout(onGoing);
+            // Changer le contenu du h1 au bout d'une seconde
+            setTimeout(function () {
+                title.textContent = 'Je suis développeur';
+            }, 500);
+        });
+
+        startButton.addEventListener('click', function () {
+            var counter = 10;
+
+            var interval = setInterval(function () {
+                if (counter == 0) {
+                    // On arrête le setInterval...
+                    // Et on affiche un message de fin
+                    display.textContent = 'Bonne année';
+                    console.log('encore');
+                    clearInterval(interval);
+                } else {
+                    // Toutes les secondes, on va retirer 1 à une valeur (10) et
+                    // on va l'afficher dans le DOM jusqu'à 0
+                    console.log(counter);
+                    display.textContent = counter--;
+                }
+            }, 1000);
+        });
+
+        // alert('FIN');
+    </script>
+</body>
+</html>
