@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice temps</title>
+
+    <style>
+        #job {
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="job">Intégrateur</h1>
+    <h2 id="clock"></h2>
+
+    <script>
+        /*
+        1. Ecrire un script qui change le contenu d'un h1 toutes les 5 secondes avec les valeurs suivantes: Intégrateur, Développeur, Administrateur système.
+        */
+        var job = document.getElementById('job');
+        var jobs = ['Intégrateur', 'Développeur', 'Administrateur système'];
+        var i = 0;
+
+        setInterval(function () {
+            /* if (job.textContent == 'Intégrateur') {
+                job.textContent = 'Développeur';
+            } else if (job.textContent == 'Développeur') {
+                job.textContent = 'Administrateur système';
+            } else {
+                job.textContent = 'Intégrateur';
+            } */
+            if (i == jobs.length) { // Si i dépasse la taille du tableau, on le remet à 0
+                i = 0;
+            }
+
+            // OPTION TRANSITION
+            // setTimeout(function () {
+            //     job.style.opacity = 0;
+            // }, 400);
+
+            // OPTION TRANSITION
+            // setTimeout(function () {
+                job.textContent = jobs[i++ % jobs.length]; // Le modulo nous assure que i ne dépassera jamais 2
+            //     job.style.opacity = 1;
+            // }, 800);
+        }, 1000);
+
+        /*
+        2. Ecrire un script qui change la couleur de fond du body au bout de 5 secondes avec une transition
+        */
+        setTimeout(function () {
+            document.body.style.transition = '0.5s';
+            document.body.style.backgroundColor = 'lightblue';
+        }, 5000);
+
+        /*
+        3. Renseignez vous sur la classe Date et essayez d'afficher l'heure sur une page au format HH:MM:SS
+        4. Rafraichir la valeur de l'heure toutes les secondes
+        */
+        var clock = document.getElementById('clock');
+
+        setInterval(function () {
+            var today = new Date();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var seconds = today.getSeconds();
+
+            if (hours < 10) {
+                hours = '0' + hours;
+            }
+
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+
+            if (hours < 10) {
+                seconds = '0' + seconds;
+            }
+
+            console.log(hours+'h'+minutes+'m'+seconds);
+            clock.textContent = hours+'h'+minutes+'m'+seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
