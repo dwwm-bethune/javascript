@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions</title>
+</head>
+<body>
+    <h1 id="moulin"></h1>
+    <div class="container">A</div>
+    <div class="container">B</div>
+
+    <script>
+        /*
+         * Une fonction permet d'organiser son code.
+         * Une fonction doit être définie et peut être appelée.
+         * Elle évite le code répétitif et parfois, elle renvoie un résultat.
+         * Si la fonction ne renvoie pas de résultat, on appelle ça une procédure.
+         */
+
+        function moulin(ingredient) {
+            console.log(ingredient);
+
+            if (ingredient == 'cacao') {
+                return 'Impossible'; // Le return arrête la fonction
+            }
+
+            console.log('toto'); // Fais quelque chose
+
+            return 'Je transforme le ' + ingredient; // Retourne quelque chose que je peux afficher plus tard
+        }
+
+        console.log(moulin('blé').toUpperCase());
+        console.log(moulin('avoine') + ' et ' + moulin('colza'));
+        console.log(moulin('cacao'));
+
+        // Un helper aide le développeur à raccourcir le code
+        function $(element) {
+            return document.querySelector(element);
+        }
+
+        // Permet de sélectionner plusieurs éléments
+        function $$(element) {
+            return document.querySelectorAll(element);
+        }
+
+        function click(element, callback) {
+            $(element).addEventListener('click', callback);
+        }
+
+        $('#moulin').textContent = moulin('seigle');
+
+        // Une fonction peut être un argument
+        click('#moulin', function () {
+            alert('ok');
+        });
+
+        // La portée des variables en JS
+        var prenom = 'Fiorella';
+        console.log(prenom);
+
+        mondePerdu();
+
+        function mondePerdu() { // Chaque fonction a son "scope", sa portée
+            var nom = 'Mota'; // Accessible uniquement dans la fonction
+            console.log(prenom); // prenom est accessible de partout
+            prenom = 'Matthieu';
+
+            function mondeEncorePlusPerdu() {
+                console.log(prenom + ' ' + nom);
+                covid = true; // Cette variable est globale et accessible de partout
+            }
+
+            mondeEncorePlusPerdu(); // Utilisable que dans mondePerdu()
+        }
+
+        console.log(prenom); // Matthieu
+        console.log(covid); // Affiche true
+        // console.log(nom); // undefined
+        // mondeEncorePlusPerdu(); // undefined
+
+        // En JS en 2022, on peut faire des var, des let et des const...
+        // Le let bloque la variable dans un if, for ou while...
+        const PI = 3.14; // Une constante ne varie jamais
+        var i = 45;
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+        }
+        console.log(i); // Sans let, i vaut 10. Avec let, i vaut 45.
+
+        // Les fonctions fléchés... sont juste un raccourci pour écrire une fonction
+        let moulin2 = (ingredient) => 'Je transforme le ' + ingredient;
+
+        // Sur plusieurs lignes...
+        let moulin3 = (ingredient) => {
+            console.log(ingredient);
+            return 'toto';
+        };
+
+        // La template de string (https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Template_literals)
+        let moulin4 = (ingredient) => `Je transforme le ${ingredient}`;
+
+        console.log(moulin2('blé'));
+        console.log(moulin3('blé'));
+        console.log(moulin4('blé'));
+    </script>
+</body>
+</html>
