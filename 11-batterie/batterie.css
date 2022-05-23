@@ -1,0 +1,77 @@
+.keys {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: auto;
+    line-height: 1.5;
+}
+
+.key {
+    border: 4px solid black;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin: 10px;
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    flex-basis: 0;
+    flex-grow: 1;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.sound {
+    display: block;
+    font-size: 14px;
+    color: #ffc600;
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+
+.s {
+    background-color: #33658a;
+}
+
+.d {
+    background-color: #fd5200;
+}
+
+.f {
+    background-color: #2f4858;
+}
+
+.g {
+    background-color: #f6ae2d;
+}
+
+.h {
+    background-color: #4381c1;
+}
+
+.k {
+    background-color: #822e81;
+}
+
+.j {
+    background-color: #f593e0;
+}
+
+.q {
+    background-color: #568259;
+}
+
+.l {
+    background-color: #8cd790;
+}
+
+@media (max-width: 991px) {
+    .keys {
+        display: block;
+    }
+}
