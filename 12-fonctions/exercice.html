@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonctions JS</title>
+</head>
+<body>
+    <h2>Carré d'un nombre</h2>
+    <input type="text" id="square-input">
+    <button id="square-button">Calcul</button>
+    <h1 id="square-result"></h1>
+
+    <h2 id="convert-text">Conversion bitcoins en euros</h2>
+    <input type="text" id="convert-input">
+    <input type="checkbox" id="convert-currency">
+    <button id="convert-button">Convertir</button>
+    <h1 id="convert-result"></h1>
+
+    <h2>PGCD de 2 nombres</h2>
+    <input type="text" id="pgcd-input-1">
+    <input type="text" id="pgcd-input-2">
+    <button id="pgcd-button">Calcul</button>
+    <h1 id="pgcd-result"></h1>
+
+    <h2>Le nombre est pair ?</h2>
+    <input type="text" id="pair-input">
+    <button id="pair-button">Calcul</button>
+    <h1 id="pair-result"></h1>
+
+    <script>
+        function square(number) {
+            return number * number;
+        }
+        // let square = (number) => number * number;
+
+        console.log(square(5)); // Affiche 25
+        console.log(square(10)); // Affiche 100
+
+        function convert(amount, currency) {
+            if (currency == 'bitcoin') {
+                return amount / 28538.94;
+            }
+
+            return amount * 28538.94;
+        }
+
+        console.log(convert(2)); // Affiche 57077.88 bitcoins
+        console.log(convert(57077.88, 'bitcoin')); // Affiche 2 euros
+
+        function pgcd(number1, number2) {
+            number1 = parseInt(number1);
+            number2 = parseInt(number2);
+
+            while (number1 != number2) {
+                if (number1 > number2) {
+                    number1 = number1 - number2;
+                } else {
+                    number2 = number2 - number1;
+                }
+            }
+
+            return number1;
+        }
+
+        console.log(pgcd(10, 5)); // Affiche 5
+        console.log(pgcd(96, 36)); // Affiche 12
+        console.log(pgcd(1368, 1136)); // Affiche 8
+
+        function isPair(n) {
+            return n % 2 == 0;
+        }
+
+        console.log(isPair(10)); // Affiche true
+        console.log(isPair(11)); // Affiche false
+
+        if (isPair(10)) {
+            console.log('10 est pair');
+        }
+
+        function isPremier(number) {
+            if (number == 1) {
+                return false;
+            }
+
+            for (var i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        console.log(isPremier(1)); // Affiche true
+        console.log(isPremier(2)); // Affiche true
+        console.log(isPremier(7)); // Affiche true
+        console.log(isPremier(10)); // Affiche false
+
+        // @todo Suite fibonacci
+        // @todo random color
+        // @todo Palindrome
+
+        /*
+         * Avec le DOM
+         */
+        // Les helpers de folie 🚀
+        /* let $ = element => document.querySelector(element);
+        let on = (element, event, callback) => $(element).addEventListener(event, callback);
+        let click = (element, callback) => on(element, 'click', callback);
+        let keydown = (element, callback) => on(element, 'keydown', callback);
+
+        click('#square-action', function () {
+            $('#square-result').textContent = square($('#square').value);
+        }); */
+
+        var squareInput = document.getElementById('square-input');
+        var squareButton = document.getElementById('square-button');
+        var squareResult = document.getElementById('square-result');
+
+        squareButton.addEventListener('click', function () {
+            squareResult.textContent = square(squareInput.value);
+        });
+
+        // En fonction fléchée...
+        // squareButton.addEventListener('click', () => squareResult.textContent = square(squareInput.value));
+
+        var convertText = document.getElementById('convert-text');
+        var convertInput = document.getElementById('convert-input');
+        var convertCurrency = document.getElementById('convert-currency');
+        var convertButton = document.getElementById('convert-button');
+        var convertResult = document.getElementById('convert-result');
+
+        // Quand on change la checkbox, on change le texte et on mets à jour le résultat
+        convertCurrency.addEventListener('change', function () {
+            convertText.textContent = this.checked ? 'Conversion euros en bitcoins' : 'Conversion bitcoins en euros';
+            convertResult.textContent = convert(convertInput.value, this.checked ? 'bitcoin' : '');
+        });
+
+        convertButton.addEventListener('click', function () {
+            if (convertCurrency.checked) {
+                convertResult.textContent = convert(convertInput.value, 'bitcoin');
+            } else {
+                convertResult.textContent = convert(convertInput.value);
+            }
+        });
+
+        var pgcdInput1 = document.getElementById('pgcd-input-1');
+        var pgcdInput2 = document.getElementById('pgcd-input-2');
+        var pgcdButton = document.getElementById('pgcd-button');
+        var pgcdResult = document.getElementById('pgcd-result');
+
+        pgcdButton.addEventListener('click', function () {
+            pgcdResult.textContent = pgcd(pgcdInput1.value, pgcdInput2.value);
+        });
+
+        var pairInput = document.getElementById('pair-input');
+        var pairButton = document.getElementById('pair-button');
+        var pairResult = document.getElementById('pair-result');
+
+        pairButton.addEventListener('click', function () {
+            if (isPair(pairInput.value)) {
+                pairResult.textContent = `Le nombre ${pairInput.value} est pair`;
+            } else {
+                pairResult.textContent = `Le nombre ${pairInput.value} n'est pas pair`;
+            }
+        });
+    </script>
+</body>
+</html>
