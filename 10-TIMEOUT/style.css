@@ -1,0 +1,11 @@
+.chrono {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    padding: 30px;
+}
+.container{
+    background-color: red;
+    height: 150px;
+    width: 400px;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="#" onclick="reload()">Reload</a>
+    <h1 id="title">Hey mon titre est en HTML</h1>
+    <div class="container">1</div>
+    <div class="container">2</div>
+    <div class="container">3</div>
+    <script>
+
+        var title = document.getElementById('title');
+        title.textContent = "Hey, j'ai changé mon titre en JavaScript";
+        var p = document.createElement('p'); // <p></p>
+        p.textContent = 'Un super paragraphe en js';
+
+        var container = document.getElementsByClassName('container')[0];
+        container.appendChild(p);
+
+       
+        document.body.style.backgroundColor = '#d5b9b9';
+        document.body.style.fontSize = '21px';
+
+        var a = document.createElement('a'); 
+        a.href ='https://developer.mozilla.org';
+        a.target = '_blank';
+        a.textContent =' LIEN';
+        var randomcolor = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        a.style.color = randomcolor;
+        a.style.textDecorationLine = 'none';
+
+        var container2 = document.getElementsByClassName('container')[1];
+        container2.appendChild(a);
+
+        function reload(){
+            document.location.reload();
+        }
+
+        
+    </script>
+</body>
+
+</html>

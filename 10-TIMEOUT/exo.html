@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EXO TIME</title>
+</head>
+
+<body>
+    <h1 id="titre">Intégrateur</h1>
+    <div class="container">
+        <div class="chrono">
+            <div id="minute">00</div>
+            <div>:</div>
+            <div id="seconde">00</div>
+        </div>
+        <button id="start">START</button>
+        <button id="stop"">STOP</button>
+        <button id="azero">REMETTRE A ZERO</button>
+    </div>
+
+    <script>
+        var titre = document.getElementById('titre');
+        var minute = document.getElementById('minute');
+        var seconde = document.getElementById('seconde')
+        var inte = 'Intégrateur';
+        var dev = 'Développeur';
+        var admin = 'Administrateur système';
+        var text = inte;
+        setInterval(function () {
+
+            if (text == inte) {
+                text = dev;
+                titre.textContent = text;
+            }
+            else if (text == dev) {
+                text = admin;
+                titre.textContent = text;
+            }
+            else {
+                text = inte;
+                titre.textContent = text;
+            }
+            console.log(text);
+        }, 5000)
+
+        setInterval(function () {
+            document.body.style.backgroundColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+            document.body.style.transition = '1s';
+        }, 5000)
+
+        var sec = 0;
+        var min = 0;
+        document.getElementById('start').addEventListener('click', function () {
+            var interval = setInterval(function () {
+                sec = sec + 1
+                seconde.textContent = sec;
+                minute.textContent = min;
+                if (sec < 10) {
+                    seconde.textContent = '0' + sec;
+                }
+                if (sec == 60) {
+                    seconde.textContent = '00';
+                    sec = 0;
+                    min = min + 1
+                }
+                if (min < 10) {
+                    minute.textContent = '0' + min;
+                }
+                document.getElementById('stop').addEventListener('click', function() {
+                    clearInterval(interval);
+                    var restsec = sec;
+                    var restmin = min;
+
+                })
+                document.getElementById('azero').addEventListener('click', function() {
+                    sec = 0;
+                    min = 0;
+                    seconde.textContent = '00';
+                    minute.textContent = '00';
+                })
+
+
+            }, 1000)
+
+        })
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

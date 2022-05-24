@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice</title>
+</head>
+
+<body>
+    <img id="img" src="content.jpg" alt="#" onmouseover="image()" onmouseleave="image2()">
+    <h1 id="title" onclick="couleurtitre()">Titre</h1>
+    <button id="button" onclick="button()" ondblclick="dblbutton()">BOUTON</button>
+    <form action="">
+        <input type="text" id="inputext">
+        <input type="button" value="GO" onclick="input()">
+        <input type="text-area" id="textarea" onkeyup="exbonus()">
+    </form>
+    <h1 id="bonus"></h1>
+    <script>
+        function image() {
+            var img = document.getElementById('img');
+            img.src = "pascontent.png";
+        }
+        function image2() {
+            var img = document.getElementById('img');
+            img.src = "content.jpg";
+        }
+        function couleurtitre() {
+            var title = document.getElementById('title');
+            title.style.color = 'red';
+        }
+        function button() {
+            document.body.style.backgroundColor = 'cyan';
+        }
+        function dblbutton(){
+            document.body.style.backgroundColor = 'white';
+
+        }
+        function input() {
+            var text = document.getElementById('inputext');
+            alert(text.value);
+        }
+        function exbonus(){
+            document.getElementById('bonus').innerHTML = document.getElementById('textarea').value;
+        }
+    </script>
+</body>
+
+</html>

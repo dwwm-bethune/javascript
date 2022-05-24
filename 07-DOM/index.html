@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="identifier" class="a b">Salut le HTML</div>
+    <div class="a">Au revoir le JS</div>
+
+<script>
+    // Comment récupérer la div en JS ?
+    var div =  document.getElementById('identifier');
+    // ON peut sélectionner la div par classe (tableau...)
+    var divByClass = document.getElementsByClassName('a');
+
+    console.log(div);
+    console.log(divByClass);
+
+    // On peut récupérer les infos de la div
+    console.log(div.textContent); // Afficher "Salut..."
+    console.log(divByClass[1].textContent); // Affiche "Au revoir..."
+    console.log(div.id); // Affiche "identifier"
+    console.log(div.className); // Affiche "a b"
+
+    // ON peut modifier le contenu d'une div
+    div.textContent = 'Salut le JS ';
+    //innerHTML permet d'interpréter le HTML
+    divByClass[1].innerHTML = 'Au revoir <span>le</span> HTML';
+
+    //Window est un objet contenant des informations sur la fenêtre ou le navigateur
+    console.log(window.navigator);
+
+    // Créer un élément HTML en JS
+    var p = document.createElement('p');
+    p.textContent = 'Je suis un paragraphe';
+
+    document.body.appendChild(p); // On ajoute le p dans le DOM à la fin de body
+    div.after(p); // Je mets le p après la div #identifier
+
+    // ON peut également changer le css en js
+    // background-color devient backgroundColor (camelCase)
+    div.style.backgroundColor ='blue';
+    div.style.fontSize = '33px';
+
+    //querySelector est une alternative aux getElement...
+    var div = document.querySelector('#identifier');
+
+    console.log(div);
+    console.log(divByClass);
+
+    for (let div of divByClass){
+        console.log('div');
+    }
+</script>
+</body>
+</html>

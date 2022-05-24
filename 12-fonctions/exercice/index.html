@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo fonctions</title>
+</head>
+<body>
+    <script>
+    // exo 1
+    var nombre = 5;
+    function carre (element){
+        return console.log(element * element);
+    }
+
+    carre(nombre);
+
+    // fin exo 1
+
+    // exo 2
+    var coin = 3;
+    var euros = 60000
+    function bitcoin (element, element2){
+        return console.log(element2 / 28538.94 + 'bitcoin'), console.log(element*28538.94 + 'euro(s)'); 
+    }
+
+    bitcoin(coin , euros);
+
+    //fin exo 2
+
+    // exo 3
+    nbr1 = 50;
+    nbr2 = 25;
+    function PGCB (nbr1 , nbr2){
+        while (nbr1 != nbr2){
+            if(nbr1>nbr2){
+                nbr1 -= nbr2;
+            }
+            else {
+                nbr2 -= nbr1;
+            }
+        }
+        return console.log(nbr1);
+    }
+    PGCB(nbr1,nbr2);
+
+    // fin exo 3
+
+    // exo 4
+    nbr = 27;
+    function pair(nbr){
+        var resultat = false;
+        var test = nbr%2;
+        if (test == 0){
+            resultat = true;
+            return console.log(resultat)
+        }
+        else {
+            resultat = false;
+            return console.log(resultat);
+        }
+
+    }
+    pair(nbr);
+
+    // fin exo 4
+
+    // exo 5
+    var entier = 11;
+    function premier(element){
+        var resultat = false;
+        if (element%2 === 0){
+            return console.log(resultat);
+        }
+        else {
+            resultat = true;
+            return console.log(resultat);
+        }
+    }
+    premier(entier);
+
+    //fin exo 5
+
+    //exo 6
+    var n1 = 0;
+    var n2 = 1;
+    var somme = 0;
+    var nombre = 8;
+    function fibonacci(element){
+        for (let i = 2; i <= element; i++){
+            somme = n1 + n2;
+            n1 = n2;
+            n2 = somme;
+        }
+        return console.log(element ? n2 : n1);
+    }
+    fibonacci(nombre);
+
+    // fin exo 6
+
+    //exo 7
+    function palindrome(word){
+        for (let i = 0; i < word.length; i++){
+            let letter = word[i];
+            let reverseLetter = word[word.length - 1 - i];
+            if (letter != reverseLetter){
+                return word + ' est pas un palindrome';
+            }
+        }
+
+        return word + ' est un palindrome';
+
+    }
+
+    console.log(palindrome('test'));
+    console.log(palindrome('kayak'));
+
+    //fin exo 7
+</script>
+</body>
+</html>

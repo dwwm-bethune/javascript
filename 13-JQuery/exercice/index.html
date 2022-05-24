@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo JQuery</title>
+</head>
+
+<body>
+    <div id="onoff" style="width:50px ;  text-align: center; margin-bottom: 50px; cursor: pointer;">ON</div>
+
+    <div id="slider" style="display: none;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum
+        autem quam iusto voluptate
+        totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde
+        maxime quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto
+        voluptate totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet
+        neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem
+        quam iusto voluptate totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla
+        consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Veniam laborum autem quam iusto voluptate totam tempora repellendus assumenda? Vitae beatae adipisci
+        exercitationem nulla consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet
+        consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam tempora repellendus assumenda?
+        Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum
+        dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam tempora
+        repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime quidem
+        dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam
+        tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime
+        quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto
+        voluptate totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet
+        neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem
+        quam iusto voluptate totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla
+        consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Veniam laborum autem quam iusto voluptate totam tempora repellendus assumenda? Vitae beatae adipisci
+        exercitationem nulla consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum dolor sit, amet
+        consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam tempora repellendus assumenda?
+        Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime quidem dolore!Lorem ipsum
+        dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam tempora
+        repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime quidem
+        dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto voluptate totam
+        tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet neque unde maxime
+        quidem dolore!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam laborum autem quam iusto
+        voluptate totam tempora repellendus assumenda? Vitae beatae adipisci exercitationem nulla consequuntur eveniet
+        neque unde maxime quidem dolore!</div>
+    <button style="cursor: pointer;">Afficher</button>
+
+    <div id="text" style="font-size: 50px; cursor: pointer;">☺</div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // ex1
+        var couleur = true;
+        $('#onoff').css({
+            backgroundColor: 'lightgrey',
+            Color: 'black'
+        });
+
+        $('#onoff').click(function () {
+            couleur = !couleur;
+            if (couleur == true) {
+                $('#onoff').css({
+                    backgroundColor: 'lightgrey',
+                    color: 'black',
+                })
+                $('#onoff').text('ON');
+            }
+            else if (couleur == false) {
+                $('#onoff').css({
+                    backgroundColor: 'darkgrey',
+                    color: 'grey',
+                })
+                $('#onoff').text('OFF');
+            }
+
+        });
+
+        //fin ex1
+        //ex2
+        var updown = false;
+        if (updown == true) {
+            $('#slider').css('display', 'block');
+        }
+        $('#slider').slideUp();
+        $('button').click(function () {
+            updown = true;
+            $('#slider').slideToggle();
+        })
+        if (updown == true) {
+            $('#slider').css('display', 'block');
+        }
+        //fin ex2
+
+        //ex3
+        var polini = '50px'
+        var verif = false;
+        $('#text').click(function(){
+            verif = !verif;
+            if (verif == true){
+                $('#text').css('font-size' , '100px');
+            }
+            else if (verif == false){
+                $('#text').css('font-size' , polini);
+            }
+        })
+        //fin ex3
+    </script>
+</body>
+
+</html>

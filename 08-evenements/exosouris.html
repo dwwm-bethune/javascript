@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice souris</title>
+    <style>
+        #a {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div id="a"></div>
+
+    <script>
+        var verif = false;
+        document.getElementById('a').addEventListener('click', function () {
+            if (verif == false) {
+                verif = true;
+            }
+            else {
+                verif = false;
+            }
+        })
+        window.addEventListener('mousemove', function (event) {
+            var topy = event.pageY;
+            var leftx = event.pageX;
+            topy = topy - 50;
+            leftx = leftx - 50;
+            if (verif == true) {
+                document.getElementById('a').style.top = topy + 'px';
+                document.getElementById('a').style.left = leftx + 'px';
+            }
+
+            else{
+                console.log('erreur');
+            }
+
+        });
+    </script>
+</body>
+
+</html>

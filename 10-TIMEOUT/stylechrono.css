@@ -1,0 +1,26 @@
+body{
+    background-color: black;
+}
+
+.chrono {
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'LED Digital 7', sans-serif;
+    border: 5px solid white;
+    border-radius: 20px;
+}
+.container{
+    height: 150px;
+    width: 400px;
+    color: white;
+    margin: auto;
+}
+
+.bouton{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
