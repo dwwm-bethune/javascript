@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<body>
+    <h1 id="title">Goodbye JavaScript</h1>
+    <h1>Goodbye JavaScript again</h1>
+    <button>Cacher</button>
+
+    <div>
+        <div class="container">A</div>
+        <div class="container">
+            <p>B</p>
+        </div>
+        <div class="container">C</div>
+    </div>
+
+    <button>Bouge ton carré</button>
+    <div class="square"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementsByTagName('h1')[0].textContent = 'Blabla';
+        $('#title').text('Hello jQuery');
+        $('h1').eq(1).html('I like jQuery'); // eq(1) sélectionne l'index 1
+        // document.getElementsByTagName('h1')[0] est un élément JS
+        // $('h1').eq(0) est un objet jQuery
+
+        $('h1').css('color', '#08f651'); // Mets tous les h1 en bleu
+
+        $('h1').last().css({
+            'background-color': 'red',
+            'border': '1px solid blue',
+        });
+
+        $('button').first().click(function () {
+            // $('h1').hide();
+            // $('h1').show();
+            // $('h1').toggle();
+            // $('h1').fadeOut();
+            // $('h1').fadeIn();
+            $('h1').fadeToggle(); // ou slideToggle()
+        });
+
+        $('.square').css({
+            backgroundColor: 'red', // 'background-color': 'red'
+            width: 100,
+            height: 100,
+            position: 'absolute',
+            boxShadow: '0 0 10px 10px #000',
+        });
+
+        // Animation sur le carré
+        var counter = 0;
+        var direction = true;
+
+        $('button').last().click(function () {
+            if (counter++ == 5) {
+                direction = !direction; // direction = true si direction est false
+                counter = 1;
+            }
+
+            $('.square').animate({
+                left: direction ? '+=200' : '-=200', // Si direction est true, on fait +=200 sinon -=200
+            });
+        });
+
+        // On a le pouvoir de manipuler facilement les éléments du DOM
+        console.log($('body > div').first().children().eq(1).next().text()); // Affiche C
+        console.log($('body > div').first().parent()); // Sélectionne la balise body
+        console.log($('body > div').first().find('p').text()); // Affiche B
+    </script>
+</body>
+</html>

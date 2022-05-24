@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercice bouton On/off</h1>
+    <button id="on-off">On</button>
+
+    <button class="slide">Déplier</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis fugiat optio repellat accusantium, architecto nobis minima at consectetur. Assumenda accusamus reiciendis aperiam nemo tenetur expedita rerum nam perspiciatis, deserunt laboriosam.</p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#on-off').css({
+            color: '#000',
+            'background-color': '#d3d3d3',
+            'box-shadow': '0 0 20px #000',
+        });
+
+        $('#on-off').click(function () {
+            if ($(this).text() == 'On') {
+                $(this).css({
+                    color: '#d3d3d3',
+                    'background-color': '#a9a9a9',
+                    'box-shadow': 'none',
+                });
+                $(this).text('Off');
+            } else {
+                $(this).css({
+                    color: '#000',
+                    'background-color': '#d3d3d3',
+                    'box-shadow': '0 0 20px #000',
+                });
+                $(this).text('On');
+            }
+        });
+
+        // Cacher / Afficher le texte
+        // $('p').hide();
+
+        var state = true;
+        $('.slide').click(function () {
+            // $('p').slideToggle();
+            $('p').animate({
+                height: state ? 0 : '100px',
+                opacity: state ? 0 : 1,
+            });
+            state = !state;
+        });
+    </script>
+</body>
+</html>
