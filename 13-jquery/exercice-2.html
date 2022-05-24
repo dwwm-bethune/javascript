@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Texte qui s'agrandit</h1>
+    <p class="text-size">Un super texte original</p>
+
+    <h1>Le rectangle</h1>
+
+    <button id="bouton1">Augmenter hauteur</button>
+    <button id="bouton2">Vert</button>
+    <button id="bouton3">Reset couleur</button>
+    <button id="bouton4">Cacher rectangle</button>
+    <button id="bouton5">Afficher rectangle</button>
+
+    <div class="rectangle"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Exo 4: Texte qui s'agrandit
+        var size = $('.text-size').css('font-size'); // 16px
+
+        $('.text-size').click(function () {
+            if (size == '16px') {
+                size = '25px';
+            } else {
+                size = '16px';
+            }
+
+            $(this).css('font-size', size);
+        });
+
+        // Exo 5 : Rectangle
+        $('.rectangle').css({
+            width: 100,
+            height: 10,
+            'background-color': '#ff0000',
+            marginTop: 10,
+        });
+
+        $('#bouton1').click(function () {
+            $('.rectangle').height('+=10');
+
+            if ($('.rectangle').height() >= 100) {
+                $('.rectangle').height('10');
+                // On peut désactiver un événement
+                // $('#bouton1').off('click');
+            }
+        });
+
+        $('#bouton2').click(function () {
+            $('.rectangle').css('background-color', 'green');
+        });
+
+        $('#bouton3').click(function () {
+            // Permet de supprimer le style ajouté en JS uniquement
+            // $('.rectangle').removeAttr('style');
+            $('.rectangle').css('background-color', '#ff0000');
+        });
+
+        $('#bouton4').click(function () {
+            $('.rectangle').fadeOut();
+        });
+
+        $('#bouton5').click(function () {
+            $('.rectangle').fadeIn();
+        });
+    </script>
+</body>
+</html>
