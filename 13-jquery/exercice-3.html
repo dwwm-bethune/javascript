@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex {
+            display: flex;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+
+        .bg-red {
+            background-color: red;
+        }
+
+        .bg-blue {
+            background-color: blue;
+        }
+
+        .bg-green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div id="red" class="square"></div>
+        <div id="blue" class="square"></div>
+        <div id="green" class="square"></div>
+    </div>
+
+    <button id="random">Random</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var red = false;
+        var blue = false;
+
+        $('#red').click(function () {
+            // if ($(this).hasClass('bg-red')) {
+            //     $(this).removeClass('bg-red');
+            // } else {
+            //     $(this).addClass('bg-red');
+            // }
+            $(this).toggleClass('bg-red');
+
+            red = $(this).hasClass('bg-red'); // red est true si la classe bg-red est présente
+        });
+
+        $('#blue').click(function () {
+            $(this).toggleClass('bg-blue');
+
+            blue = $(this).hasClass('bg-blue');
+        });
+
+        $('#green').click(function () {
+            $(this).toggleClass('bg-green');
+
+            if (red)  { // si le bouton rouge était allumé
+                $('#red').toggleClass('bg-red');
+            }
+
+            if (blue) { // si le bouton bleu était allumé
+                $('#blue').toggleClass('bg-blue');
+            }
+        });
+
+        $('#random').click(function () {
+            var colors = ['bg-green', 'bg-red', 'bg-blue'];
+
+            // colors[random()];
+
+            $('#red').removeClass(colors).addClass(colors[random()]);
+            $('#blue').removeClass(colors).addClass(colors[random()]);
+            $('#green').removeClass(colors).addClass(colors[random()]);
+        });
+
+        function random() {
+            return Math.floor(Math.random() * 3);
+        }
+    </script>
+</body>
+</html>
