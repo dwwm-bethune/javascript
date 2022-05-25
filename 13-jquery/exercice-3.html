@@ -81,8 +81,10 @@
             $('#green').removeClass(colors).addClass(colors[random()]);
         });
 
-        function random() {
-            return Math.floor(Math.random() * 3);
+        function random() { // On génére un nombre aléatoire entre 0 et 2
+            Math.ceil(1.8); // 2
+            Math.floor(1.8); // 1
+            return Math.floor(Math.random() * 3); // 0,5 * 3 = 1.5 = 1
         }
     </script>
 </body>
