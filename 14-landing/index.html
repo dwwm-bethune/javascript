@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" rel="stylesheet">
     <style>
         .slide {
             background-color: rgba(255, 255, 255, 0.4);
@@ -56,16 +57,32 @@
 
         <div class="row grid">
             <div class="col-lg-4 html">
-                <div class="card">A</div>
+                <div class="card">
+                    <a href="https://lipsum.app/id/1/1024x768" data-fancybox="gallery">
+                        <img class="img-fluid" src="https://lipsum.app/id/1/1024x768" alt="">
+                    </a>
+                </div>
             </div>
             <div class="col-lg-4 html">
-                <div class="card">B</div>    
+                <div class="card">
+                    <a href="https://lipsum.app/id/2/1024x768" data-fancybox="gallery">
+                        <img class="img-fluid" src="https://lipsum.app/id/2/1024x768" alt="">
+                    </a>
+                </div>    
             </div>
             <div class="col-lg-4 js">
-                <div class="card">C</div>
+                <div class="card">
+                    <a href="https://lipsum.app/id/5/1024x768" data-fancybox="gallery">
+                        <img class="img-fluid" src="https://lipsum.app/id/5/1024x768" alt="">
+                    </a>
+                </div>
             </div>
             <div class="col-lg-4 php">
-                <div class="card">D</div>
+                <div class="card">
+                    <a href="https://lipsum.app/id/4/1024x768" data-fancybox="gallery">
+                        <img class="img-fluid" src="https://lipsum.app/id/4/1024x768" alt="">
+                    </a>
+                </div>
             </div>
         </div>
         
@@ -84,6 +101,7 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script>
         AOS.init(); // Initialise l'animation au scroll
@@ -94,7 +112,9 @@
             dots: true,
         });
 
-        $('.grid').isotope(); // Initialise le système de filtres Isotope
+        setTimeout(function () {
+            $('.grid').isotope(); // Initialise le système de filtres Isotope
+        }, 500);
 
         $('.nav-pills a').click(function () {
             // $(this) est le a qui est cliqué
