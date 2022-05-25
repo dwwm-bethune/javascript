@@ -116,7 +116,8 @@
             $('.grid').isotope(); // Initialise le système de filtres Isotope
         }, 500);
 
-        $('.nav-pills a').click(function () {
+        $('.nav-pills a').click(function (event) {
+            event.preventDefault(); // Annule le comportement par défaut du lien (de l'élément)
             // $(this) est le a qui est cliqué
             $('.grid').isotope({ filter: $(this).data('filter') });
             $('.nav-pills a').removeClass('active');
